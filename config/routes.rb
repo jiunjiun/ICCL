@@ -1,4 +1,27 @@
 ICCL::Application.routes.draw do
+  root "index#index"
+
+  match 'index/:id'         => 'index#page',        :via => 'get'
+  match 'sign_in'           => 'user#sign_in',      :via => 'get'
+  match 'sign_out'          => 'user#sign_in',      :via => 'get'
+  match 'news/:id'          => 'news#view',         :via => 'get'
+  match 'member/Professor'  => 'member#professor',  :via => 'get'
+  match 'member/Graduate'   => 'member#graduate',   :via => 'get'
+  match 'member/University' => 'member#university', :via => 'get'
+  match 'study/Graduate'    => 'study#graduate',    :via => 'get'
+  match 'study/University'  => 'study#university',  :via => 'get'
+  match 'plan'              => 'plan#index',        :via => 'get'
+  match 'about'             => 'about#index',       :via => 'get'
+
+  namespace :admin do
+    root 'index#index'
+    match 'user/verify'     => 'user#verify',  :via => 'get'
+    match 'user/verify/add' => 'user#verify',  :via => 'get'
+    resources :users
+    resources :news
+    resources :plans
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -39,7 +62,7 @@ ICCL::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
