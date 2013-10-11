@@ -14,31 +14,33 @@
 ActiveRecord::Schema.define(version: 20131010041713) do
 
   create_table "news", force: true do |t|
-    t.integer "status",  default: 1
-    t.string  "title"
+    t.integer "status",              default: 1
+    t.string  "title",   limit: 100
     t.text    "content"
     t.integer "line"
   end
 
   create_table "plans", force: true do |t|
-    t.integer "status",  default: 1
-    t.string  "title"
+    t.integer "status",              default: 1
+    t.string  "title",   limit: 100
     t.text    "content"
     t.integer "line"
   end
 
   create_table "studies", force: true do |t|
-    t.integer "status",  default: 1
-    t.string  "title"
+    t.integer "status",              default: 1
+    t.string  "title",   limit: 100
     t.text    "content"
     t.integer "line"
   end
 
   create_table "users", force: true do |t|
-    t.integer  "status",                default: 2
+    t.integer  "status",                default: 3
     t.string   "fb_id",      limit: 30
+    t.integer  "classes"
     t.string   "name"
     t.string   "email"
+    t.string   "phone"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "token"
