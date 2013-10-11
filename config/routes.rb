@@ -1,22 +1,29 @@
 ICCL::Application.routes.draw do
   root "index#index"
 
-  match 'index/:id'         => 'index#page',        :via => 'get'
-  match 'sign_in'           => 'user#sign_in',      :via => 'get'
-  match 'sign_out'          => 'user#sign_in',      :via => 'get'
-  match 'news/:id'          => 'news#view',         :via => 'get'
-  match 'member/Professor'  => 'member#professor',  :via => 'get'
-  match 'member/Graduate'   => 'member#graduate',   :via => 'get'
-  match 'member/University' => 'member#university', :via => 'get'
-  match 'study/Graduate'    => 'study#graduate',    :via => 'get'
-  match 'study/University'  => 'study#university',  :via => 'get'
-  match 'plan'              => 'plan#index',        :via => 'get'
-  match 'about'             => 'about#index',       :via => 'get'
+  match 'index/:id'               => 'index#page',         :via => 'get'
+  match 'sign_in'                 => 'users#sign_in',      :via => 'get'
+  match 'auth/:provider/callback' => 'users#auth_fb',      :via => 'get'
+  match 'sign_failure'            => 'users#failure',      :via => 'get'
+  match 'sign_up'                 => 'users#sign_up',      :via => 'get'
+  match 'sign_upping'             => 'users#sign_upping',  :via => 'post'
+  match 'sign_out'                => 'users#sign_out',     :via => 'get'
+  match 'news/:id'                => 'news#view',          :via => 'get'
+  match 'member/Professor'        => 'member#professor',   :via => 'get'
+  match 'member/Graduate'         => 'member#graduate',    :via => 'get'
+  match 'member/Master'           => 'member#master',      :via => 'get'
+  match 'member/University'       => 'member#university',  :via => 'get'
+  match 'study/Master'            => 'study#master',       :via => 'get'
+  match 'study/University'        => 'study#university',   :via => 'get'
+  match 'plan'                    => 'plan#index',         :via => 'get'
+  match 'about'                   => 'about#index',        :via => 'get'
+  match 'lab/account'             => 'lab#account',        :via => 'get'
+  match 'lab/contact'             => 'lab#contact',        :via => 'get'
 
   namespace :admin do
     root 'index#index'
-    match 'user/verify'     => 'user#verify',  :via => 'get'
-    match 'user/verify/add' => 'user#verify',  :via => 'get'
+    match 'user/verify'           => 'user#verify',        :via => 'get'
+    match 'user/verify/add'       => 'user#verify',        :via => 'get'
     resources :users
     resources :news
     resources :plans
