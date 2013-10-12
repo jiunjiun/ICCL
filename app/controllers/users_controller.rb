@@ -16,7 +16,7 @@ class UsersController < ApplicationController
                 authUser.save
                 flash[:first] = '1'
             end
-            session[:UserInfo] = { :id => authUser.id, :status => authUser.status }
+            session[:UserInfo] = { :id => authUser.id }
             redirect_to sign_up_path
         else
             redirect_to sign_failure_path
@@ -41,7 +41,7 @@ class UsersController < ApplicationController
     end
 
     def failure
-        flash[:notice] = '您尚未經過認證'
+        flash[:notice] = 'failure'
         # redirect_to root_path
     end
 
