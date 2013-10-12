@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20131010041713) do
   end
 
   create_table "users", force: true do |t|
-    t.integer  "status",                default: 3
+    t.string   "role",       limit: 2,  default: "GU"
     t.string   "fb_id",      limit: 30
     t.integer  "classes"
     t.string   "name"
