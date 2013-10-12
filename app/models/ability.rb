@@ -2,16 +2,15 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    user ||= User.new #guest user.
 
-    if user.status == 1     #su
+    # Rails.logger.debug("****** user.status: #{user.status}")
+    case user.role
+    when 'SU'
         can :manage, :all
-    elsif user.status == 2 || user.status == 3  #user
-        user_account
-    end
-
-    def user_account
-        can :read, User, :all, :active => true
-        can :update, User, :all, :active => true
+    when 'UE'
+    when 'GR'
+        can [:account, :contact], LabController
     end
 
 
