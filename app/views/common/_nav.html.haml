@@ -1,0 +1,36 @@
+%ul
+    %li
+        %a{:href => about_path} about
+    %li
+        member
+        %ul
+            %li
+                %a{:href => member_Professor_path} Professor
+            %li
+                %a{:href => member_Master_path} Master
+            %li
+                %a{:href => member_University_path} University
+            %li
+                %a{:href => member_Graduate_path} Graduate
+    %li
+        study
+        %ul
+            %li
+                %a{:href => study_Master_path} Master
+            %li
+                %a{:href => study_University_path} University
+    %li
+        %a{:href => plan_path} Plan
+    - if can? :account, LabController
+        %li
+            Lab
+            %ul
+                %li
+                    %a{:href => lab_account_path} Account
+                %li
+                    %a{:href => lab_contact_path} Contact
+
+
+    - if can? :admin, Admin
+        %li
+            %a{:href => admin_root_path} Backend
