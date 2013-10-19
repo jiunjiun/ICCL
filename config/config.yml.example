@@ -3,6 +3,8 @@ defaults: &defaults
   domain: "http://ICCL.dev"
   facebook_app_id: ""
   facebook_secret: ""
+  imsu_name: ""
+  imsu_passwd: ""
   hipchat_token:
   hipchat_room_name:
   admin_emails:
