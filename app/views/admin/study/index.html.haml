@@ -1,0 +1,17 @@
+%a{:href => new_admin_study_path} New
+%table
+    %tr
+        %th
+        %th
+        %th title
+        %th line
+        %th status
+    - @studies.each do |study|
+        %tr
+            %td
+                =link_to 'Edit', edit_admin_study_path(study)
+            %td
+                =link_to 'delete', admin_study_path(study), :method => :delete
+            %td= study.title
+            %td= study.line
+            %td= study.status

@@ -5,6 +5,7 @@ class CreatePlans < ActiveRecord::Migration
       t.string  :title,  :limit => 100
       t.text    :content
       t.integer :line
+      t.timestamps
     end
   end
 end

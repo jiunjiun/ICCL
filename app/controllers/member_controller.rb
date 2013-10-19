@@ -7,11 +7,7 @@ class MemberController < ApplicationController
 
     end
 
-    def master
-
-    end
-
-    def university
+    def student
 
     end
 end

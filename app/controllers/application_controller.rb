@@ -3,25 +3,37 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  protected
   # ---------------
-  # cancan Ability
-  def current_ability
-      @current_ability ||= ::Ability.new(User.find_by_id(session[:UserInfo][:id]))
-  end
-
   # cancan has any err back root_path
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_path, :alert => exception.message
   end
+
+  # cancan Ability
+  def current_ability
+      user = User.find_by_id(session[:UserInfo][:id]) if(session[:UserInfo])
+      @current_ability ||= ::Ability.new(user)
+  end
   # ---------------
 
+  # before_filter :authenticate
 
-  before_filter :authenticate
+  # def authenticate
+  #   if params[:controller]["admin"]
+  #
+  #     # render layout: "backend"
+  #     layout "backend"
+  #   end
+  # end
 
-  def authenticate
+  layout :layout_by_resource
+  # layout
+  def layout_by_resource
     if params[:controller]["admin"]
-      # layout
-      render layout: "backend"
+      "backend"
+    elsif params[:controller]["imsu"]
+      "imsu"
     end
   end
 end

@@ -1,7 +1,8 @@
 ICCL::Application.routes.draw do
-  root "index#index"
+  root 'index#index'
 
-  match 'index/:id'               => 'index#page',         :via => 'get'
+  match 'news/:id'                => 'news#show',          :via => 'get'
+  match 'reset'                   => 'index#reset',        :via => 'get'
   match 'sign_in'                 => 'users#sign_in',      :via => 'get'
   match 'auth/:provider/callback' => 'users#auth_fb',      :via => 'get'
   match 'sign_failure'            => 'users#failure',      :via => 'get'
@@ -11,8 +12,7 @@ ICCL::Application.routes.draw do
   match 'news/:id'                => 'news#view',          :via => 'get'
   match 'member/Professor'        => 'member#professor',   :via => 'get'
   match 'member/Graduate'         => 'member#graduate',    :via => 'get'
-  match 'member/Master'           => 'member#master',      :via => 'get'
-  match 'member/University'       => 'member#university',  :via => 'get'
+  match 'member/Student'          => 'member#student',     :via => 'get'
   match 'study/Master'            => 'study#master',       :via => 'get'
   match 'study/University'        => 'study#university',   :via => 'get'
   match 'plan'                    => 'plan#index',         :via => 'get'
@@ -20,13 +20,17 @@ ICCL::Application.routes.draw do
   match 'lab/account'             => 'lab#account',        :via => 'get'
   match 'lab/contact'             => 'lab#contact',        :via => 'get'
 
+  match 'im/su'                   => 'imsu#index',         :via => 'get'
+  match 'im/su/:id'               => 'imsu#update',        :via => 'post'
+
   namespace :admin do
-    root 'index#index'
-    match 'user/verify'           => 'user#verify',        :via => 'get'
-    match 'user/verify/add'       => 'user#verify',        :via => 'get'
-    resources :users
+    root  'index#index'
+    match 'user/audit'            => 'user#audit',         :via => 'get'
+    match 'user/verify/:id'       => 'user#verify',        :via => 'get'
+    resources :user
     resources :news
-    resources :plans
+    resources :plan
+    resources :study
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -2,3 +2,7 @@
 
 = link_to 'Sign in', sign_in_path
 
+- @news.each do |news|
+    %p= link_to news.title, :controller => "news", :action => "show", :id => news
+
+= paginate @news

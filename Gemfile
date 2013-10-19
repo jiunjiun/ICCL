@@ -34,6 +34,9 @@ end
 
 gem 'haml'
 
+# auto page
+gem 'kaminari'
+
 # config file
 gem 'settingslogic'
 

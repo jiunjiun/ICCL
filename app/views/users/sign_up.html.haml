@@ -3,7 +3,7 @@
     = f.text_field :id, type: "hidden"
 
     = f.label :classes
-    = f.select(:classes, options_for_select([["研究生", 1], ["大學部", 2]]))
+    = f.select(:classes, options_for_select([["研究生", "master"], ["大學部", "university"]]))
 
     = f.label :name
     = f.text_field :name

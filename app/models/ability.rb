@@ -4,7 +4,6 @@ class Ability
   def initialize(user)
     user ||= User.new #guest user.
 
-    # Rails.logger.debug("****** user.status: #{user.status}")
     case user.role
     when 'SU'
         can :manage, :all
@@ -12,7 +11,6 @@ class Ability
     when 'GR'
         can [:account, :contact], LabController
     end
-
 
     # Define abilities for the passed in user here. For example:
     #

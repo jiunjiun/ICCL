@@ -7,9 +7,7 @@
             %li
                 %a{:href => member_Professor_path} Professor
             %li
-                %a{:href => member_Master_path} Master
-            %li
-                %a{:href => member_University_path} University
+                %a{:href => member_Student_path} Student
             %li
                 %a{:href => member_Graduate_path} Graduate
     %li
@@ -29,8 +27,6 @@
                     %a{:href => lab_account_path} Account
                 %li
                     %a{:href => lab_contact_path} Contact
-
-
     - if can? :admin, Admin
         %li
             %a{:href => admin_root_path} Backend

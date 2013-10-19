@@ -1,0 +1,14 @@
+= form_for @plan, :url=> admin_plan_path(@plan) do |f|
+    = f.label :title
+    = f.text_field :title
+
+    = f.label :content
+    = f.text_area :content
+
+    = f.label :line
+    = f.text_field :line
+
+    = f.label :status
+    = f.select(:status, options_for_select([["public", "1"], ["private", "0"]]))
+
+    =f.submit

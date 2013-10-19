@@ -1,0 +1,17 @@
+%a{:href => new_admin_plan_path} New
+%table
+    %tr
+        %th
+        %th
+        %th title
+        %th line
+        %th status
+    - @plans.each do |plan|
+        %tr
+            %td
+                =link_to 'Edit', edit_admin_plan_path(plan)
+            %td
+                =link_to 'delete', admin_plan_path(plan), :method => :delete
+            %td= plan.title
+            %td= plan.line
+            %td= plan.status
