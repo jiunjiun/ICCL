@@ -14,9 +14,8 @@ class UsersController < ApplicationController
                                     :name  => auth_hash['info']['name'],
                                     :email => auth_hash['info']['email'])
                 authUser.save
-                flash[:first] = '1'
             end
-            session[:UserInfo] = { :id => authUser.id }
+            session[:UserInfo] = { :id => authUser.id, :fb_id => authUser.fb_id, :name => authUser.name}
             redirect_to sign_up_path
         else
             redirect_to sign_failure_path
@@ -24,10 +23,10 @@ class UsersController < ApplicationController
     end
 
     def sign_up
-        if !flash[:first]
-            redirect_to root_path
-        end
         @user = User.find(session[:UserInfo][:id])
+        # if @user.classes
+        #     redirect_to root_path
+        # end
     end
 
     def sign_upping
@@ -37,12 +36,17 @@ class UsersController < ApplicationController
 
     def sign_out
         session.delete(:UserInfo)
+        reset_session
         redirect_to root_path
     end
 
     def failure
-        flash[:notice] = 'failure'
-        # redirect_to root_path
+        # flash[:notice] = 'failure'
+        redirect_to root_path
+    end
+
+    def account
+        @user = User.find(session[:UserInfo][:id])
     end
 
     private
