@@ -4,5 +4,5 @@
         %th Email
     - @users.each do |user|
         %tr
-            %td= link_to 'Edit', "/im/su/#{user.id}", :method => :post
+            %td= link_to 'Add', "/im/su/#{user.id}", :method => :post
             %td= user.email
