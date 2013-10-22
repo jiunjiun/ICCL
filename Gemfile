@@ -6,6 +6,9 @@ gem 'rails', '4.0.0'
 # Use mysql as the database for Active Record
 gem 'mysql2'
 
+# normalize
+gem 'normalize-rails'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -50,6 +53,13 @@ gem 'koala', '~> 1.7.0rc1'
 # account
 gem 'cancan'
 
+gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
+                              :github => 'anjlab/bootstrap-rails'
+
+gem 'rails-i18n', '~> 4.0.0' # For 4.0.x
+
+# livereload
+gem 'guard-livereload'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
