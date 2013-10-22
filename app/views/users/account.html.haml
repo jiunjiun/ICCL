@@ -1,30 +1,28 @@
-%div#account.container
-    %h1= t("user.sign_up")
+%div#account.container.shadowbar
+    %h1= t("user.account")
     %hr/
     = form_for @user, :url=> sign_upping_path(@user), method: "post", :html => {:class=> 'form-horizontal', :role=> 'form'} do |f|
         = f.text_field :id, type: "hidden"
         %div.form-group.row
-            = f.label :classes, t('sign_up.classes'), :class=>'col-md-3 control-label'
+            = f.label :classes, t('user.classes'), :class=>'col-md-3 control-label'
             %div.col-md-7
-                = f.select(:classes, [[t('study.master'), "master"], [t('study.university'), "university"]], {}, {:class=>'form-control'})
+                %label{:class => "control-label"}= classesName(@user.classes)
 
         %div.form-group.row
-            = f.label :name, t('sign_up.name'), :class=>'col-md-3 control-label'
+            = f.label :name, t('user.name'), :class=>'col-md-3 control-label'
             %div.col-md-7
                 = f.text_field :name, :class=>'form-control'
-            %p.text-warning= t('user.note-name')
 
         %div.form-group.row
             = f.label :email, :class=>'col-md-3 control-label'
             %div.col-md-7
                 = f.email_field :email, :class=>'form-control'
-            %p.text-warning= t('user.note-email')
 
         %div.form-group.row
-            = f.label :phone, t('sign_up.phone'), :class=>'col-md-3 control-label'
+            = f.label :phone, t('user.phone'), :class=>'col-md-3 control-label'
             %div.col-md-7
                 = f.number_field :phone, :class=>'form-control'
-            %p.text-warning= t('user.note-phone')
+
         %div.form-group
             %div.col-md-offset-3.col-md-10
-                = f.submit t("user.sign_up"), :class=> 'btn btn-success col-md-8'
+                = f.submit t(:update, :scope=> [:helpers,:submit], :model=>''), :class=> 'btn btn-lg btn-success col-md-8'

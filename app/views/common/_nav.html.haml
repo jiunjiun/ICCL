@@ -1,32 +1,62 @@
-%ul
-    %li
-        %a{:href => about_path} about
-    %li
-        member
-        %ul
+%nav.navbar.navbar-default{role: "navigation"}
+  / Brand and toggle get grouped for better mobile display
+  .navbar-header
+    %button.navbar-toggle{"data-target" => ".navbar-ex1-collapse", "data-toggle" => "collapse", type: "button"}
+      %span.sr-only Toggle navigation
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+    %a.navbar-brand{href: root_path} ICCL
+  / Collect the nav links, forms, and other content for toggling
+  .collapse.navbar-collapse.navbar-ex1-collapse
+    %ul.nav.navbar-nav
+      %li
+        %a{href: about_path}= t("about.title")
+      %li.dropdown
+        %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+          = t("member.title")
+          %b.caret
+        %ul.dropdown-menu
+          %li
+            %a{href: member_Professor_path}= t("member.professor")
+          %li
+            %a{href: member_Student_path}= t("member.student")
+          %li
+            %a{href: member_Graduate_path}= t("member.graduate")
+      %li.dropdown
+        %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+          = t("study.title")
+          %b.caret
+        %ul.dropdown-menu
+          %li
+            %a{href: study_Master_path}= t("study.master")
+          %li
+            %a{href: study_University_path}= t("study.university")
+      %li
+        %a{href: plan_path}= t("plan.title")
+      - if can? :account, LabController
+        %li.dropdown
+          %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+            = t("lab.title")
+            %b.caret
+          %ul.dropdown-menu
             %li
-                %a{:href => member_Professor_path} Professor
-            %li
-                %a{:href => member_Student_path} Student
-            %li
-                %a{:href => member_Graduate_path} Graduate
-    %li
-        study
-        %ul
-            %li
-                %a{:href => study_Master_path} Master
-            %li
-                %a{:href => study_University_path} University
-    %li
-        %a{:href => plan_path} Plan
-    - if can? :account, LabController
+              %a{href: lab_contact_path}= t("lab.contact")
+      - if can? :admin, Admin
         %li
-            Lab
-            %ul
-                %li
-                    %a{:href => lab_account_path} Account
-                %li
-                    %a{:href => lab_contact_path} Contact
-    - if can? :admin, Admin
+          %a{href: admin_root_path}= t("admin.title")
+    %ul.nav.navbar-nav.navbar-right
+      - if session[:UserInfo]
+        %li.dropdown
+          %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+            %img.img-circle{:src => "https://graph.facebook.com/#{session[:UserInfo][:fb_id]}/picture?type=square", :alt => "square", :width=> 30, :height=> 30}
+            = session[:UserInfo][:name]
+            %b.caret
+          %ul.dropdown-menu
+            %li
+              %a{href: user_account_path}= t("user.account")
+            %li
+              %a{href: sign_out_path}= t("user.sign_out")
+      - else
         %li
-            %a{:href => admin_root_path} Backend
+          %a{href: sign_in_path}= t("user.sign_in")
