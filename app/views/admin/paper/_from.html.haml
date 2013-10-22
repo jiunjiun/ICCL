@@ -1,0 +1,11 @@
+= form_for @paper, :url=> admin_paper_path(@paper) do |f|
+    = f.label :_type
+    = f.select(:_type, [[t('admin.paper.PA'), "PA"], [t('admin.paper.IS'), "IS"], [t('admin.paper.DS'), "DS"]], {}, {:class=>'form-control'})
+
+    = f.label :year
+    = f.number_field :year
+
+    = f.label :name
+    = f.text_field :name
+
+    = f.submit

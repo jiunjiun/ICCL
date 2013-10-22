@@ -1,0 +1,17 @@
+%a{:href => new_admin_paper_path} New
+%table
+    %tr
+        %th
+        %th
+        %th Type
+        %th Year
+        %th Name
+    - @papers.each do |paper|
+        %tr
+            %td
+                =link_to 'Edit', edit_admin_paper_path(paper)
+            %td
+                =link_to 'delete', admin_paper_path(paper), :method => :delete
+            %td= paper._type
+            %td= paper.year
+            %td= paper.name

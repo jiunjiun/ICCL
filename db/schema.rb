@@ -11,13 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131010041713) do
+ActiveRecord::Schema.define(version: 20131022155659) do
 
   create_table "news", force: true do |t|
     t.integer  "status",                 default: 1
     t.string   "title",      limit: 100
     t.text     "content"
     t.integer  "line"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "papers", force: true do |t|
+    t.string   "_type",      limit: 2
+    t.integer  "year"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

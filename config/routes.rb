@@ -29,6 +29,7 @@ ICCL::Application.routes.draw do
     match 'user/audit'            => 'user#audit',         :via => 'get'
     match 'user/verify/:id'       => 'user#verify',        :via => 'get'
     resources :user
+    resources :paper
     resources :news
     resources :plan
     resources :study

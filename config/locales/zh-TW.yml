@@ -17,6 +17,10 @@ zh-TW:
     contact: '通訊錄'
   admin:
     title: '管理後台'
+    paper:
+      PA: '期刊論文'
+      IS: '國際學術研討會'
+      DS: '國內學術研討會'
   user:
     account: '個人資料'
     sign_in: '登入'
