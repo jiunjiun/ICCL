@@ -4,7 +4,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   protected
-  # ---------------
+  before_filter :authenticate
+
+  def authenticate
+    @user = User.find_by_id(session[:UserInfo][:id]) if(session[:UserInfo])
+    redirect_to sign_up_path if(!@user.classes  && !params[:action]["sign_up"]) if(@user)
+  end
+
   # cancan has any err back root_path
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_path, :alert => exception.message
@@ -12,20 +18,10 @@ class ApplicationController < ActionController::Base
 
   # cancan Ability
   def current_ability
-      user = User.find_by_id(session[:UserInfo][:id]) if(session[:UserInfo])
-      @current_ability ||= ::Ability.new(user)
+      reset_session if(!@user)
+      @current_ability ||= ::Ability.new(@user)
   end
   # ---------------
-
-  # before_filter :authenticate
-
-  # def authenticate
-  #   if params[:controller]["admin"]
-  #
-  #     # render layout: "backend"
-  #     layout "backend"
-  #   end
-  # end
 
   layout :layout_by_resource
   # layout
