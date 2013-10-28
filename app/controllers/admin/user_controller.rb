@@ -3,17 +3,19 @@ class Admin::UserController < ApplicationController
     # load_resource
 
     def index
-        @users = User.where('role != ?', 'GU').all
+        @users = User.where(:role=> ['SU', 'UE']).all
+    end
+
+    def graduation
+        @users = User.GR
     end
 
     def audit
-        @users = User.where(:role=> 'GU').all
+        @users = User.GU
     end
 
     def verify
-        user = User.find(params[:id])
-        user.role = 'US'
-        user.save
+        User.find(params[:id]).update_attributes!(:role => 'UE')
         redirect_to admin_user_audit_path
     end
 

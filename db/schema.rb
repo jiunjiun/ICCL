@@ -40,10 +40,11 @@ ActiveRecord::Schema.define(version: 20131022155659) do
   end
 
   create_table "studies", force: true do |t|
-    t.integer  "status",                 default: 1
+    t.string   "classes"
     t.string   "title",      limit: 100
     t.text     "content"
     t.integer  "line"
+    t.integer  "status",                 default: 1
     t.datetime "created_at"
     t.datetime "updated_at"
   end
