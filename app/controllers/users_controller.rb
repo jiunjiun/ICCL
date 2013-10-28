@@ -24,13 +24,19 @@ class UsersController < ApplicationController
 
     def sign_up
         @user = User.find(session[:UserInfo][:id])
-        # if @user.classes
-        #     redirect_to root_path
-        # end
+        if @user.classes
+            redirect_to root_path
+        end
+    end
+
+    def account
+        @user = User.find(session[:UserInfo][:id])
     end
 
     def sign_upping
         @user = User.find(params[:user][:id]).update_attributes(user_params)
+        authUser = User.find(params[:user][:id])
+        session[:UserInfo] = { :id => authUser.id, :fb_id => authUser.fb_id, :name => authUser.name}
         redirect_to root_path
     end
 
@@ -43,10 +49,6 @@ class UsersController < ApplicationController
     def failure
         # flash[:notice] = 'failure'
         redirect_to root_path
-    end
-
-    def account
-        @user = User.find(session[:UserInfo][:id])
     end
 
     private

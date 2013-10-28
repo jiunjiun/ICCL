@@ -1,9 +1,13 @@
 class StudyController < ApplicationController
-    def Master
-
+    def show
+        @study = Study.find(params[:id])
     end
 
-    def University
+    def master
+        @Masters = Study.Master
+    end
 
+    def university
+        @Universitys = Study.University
     end
 end
