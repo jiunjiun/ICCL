@@ -33,6 +33,6 @@ class Admin::StudyController < ApplicationController
 
     private
     def study_params
-        params.require(:study).permit(:status, :title, :content, :line)
+        params.require(:study).permit(:status, :title, :content, :line, :classes)
     end
 end

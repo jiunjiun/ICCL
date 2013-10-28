@@ -1,11 +1,12 @@
-%a{:href => new_admin_news_path} New
-%table
-    %tr
-        %th
-        %th
-        %th title
-        %th line
-        %th status
+%h1= t('backend.news.main')
+%a.btn.btn-primary{:href => new_admin_news_path} New
+%table.table.table-striped
+    %thead
+        %tr
+            %th
+            %th
+            %th= t('backend.news.title')
+            %th= t('backend.news.status')
     - @news.each do |news|
         %tr
             %td
@@ -14,4 +15,4 @@
                 =link_to 'delete', admin_news_path(news), :method => :delete
             %td= news.title
             %td= news.line
-            %td= news.status
+            %td= t("backend-status-#{news.status}")

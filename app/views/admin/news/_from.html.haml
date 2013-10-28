@@ -1,14 +1,16 @@
 = form_for @news, :url=> admin_news_path(@news) do |f|
-    = f.label :title
-    = f.text_field :title
+    %p
+        = f.text_field :title, class: 'form-control', placeholder: t('backend.news.title')
+    %p
+        = f.text_area :content, class: 'form-control', placeholder:t('backend.news.plac_write_something')
 
-    = f.label :content
-    = f.text_area :content
+    .row
+        .col-md-3.col-md-offset-6
+            = f.label :line
+            = f.number_field :line, class: 'form-control'
+        .col-md-3
+            = f.label :status, t('backend.news.status')
+            = f.select(:status, options_for_select([[t('backend.news.status-1'), "1"], [t('backend.news.status-0'), "0"]]), {}, {:class=>'form-control'})
 
-    = f.label :line
-    = f.number_field :line
-
-    = f.label :status
-    = f.select(:status, options_for_select([["public", "1"], ["private", "0"]]))
-
-    =f.submit
+    %p.pull-right
+        = f.submit class: 'btn btn-success'

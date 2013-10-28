@@ -5,6 +5,7 @@
         %th
         %th title
         %th line
+        %th classes
         %th status
     - @studies.each do |study|
         %tr
@@ -14,4 +15,5 @@
                 =link_to 'delete', admin_study_path(study), :method => :delete
             %td= study.title
             %td= study.line
+            %td= study.classes
             %td= study.status

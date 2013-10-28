@@ -8,6 +8,9 @@
     = f.label :line
     = f.number_field :line
 
+    = f.label :classes
+    = f.select(:classes, options_for_select([["master", "master"], ["university", "university"]]))
+
     = f.label :status
     = f.select(:status, options_for_select([["public", "1"], ["private", "0"]]))
 
