@@ -17,9 +17,12 @@ ICCL::Application.routes.draw do
   match 'study'                   => 'study#index',        :via => 'get'
   match 'study/Master'            => 'study#master',       :via => 'get'
   match 'study/University'        => 'study#university',   :via => 'get'
+  match 'study/:id'               => 'study#show',         :via => 'get'
   match 'plan'                    => 'plan#index',         :via => 'get'
   match 'about'                   => 'about#index',        :via => 'get'
   match 'lab/contact'             => 'lab#contact',        :via => 'get'
+  match 'lab/rule'                => 'lab#rule',           :via => 'get'
+  match 'lab/service'             => 'lab#service',        :via => 'get'
 
   match 'im/su'                   => 'imsu#index',         :via => 'get'
   match 'im/su/:id'               => 'imsu#update',        :via => 'post'
@@ -27,6 +30,7 @@ ICCL::Application.routes.draw do
   namespace :admin do
     root  'index#index'
     match 'user/audit'            => 'user#audit',         :via => 'get'
+    match 'user/graduation'       => 'user#graduation',    :via => 'get'
     match 'user/verify/:id'       => 'user#verify',        :via => 'get'
     resources :user
     resources :paper
