@@ -61,6 +61,9 @@ gem 'rails-i18n', '~> 4.0.0' # For 4.0.x
 # livereload
 gem 'guard-livereload'
 
+# html editor
+gem "ckeditor"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
