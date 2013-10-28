@@ -1,1 +1,12 @@
-%h1 Study#University
+#study
+    .row
+        - @Universitys.each do |university|
+            #aricle.col-md-12
+                %h1= university.title
+                %hr/
+                %em.pull-right
+                    = university.updated_at.to_time.to_formatted_s(:long)
+                .content
+                    = raw university.content.truncate(100, :separator => ' ')
+                %em
+                    %a{:href => "#{university.id}"} Read more

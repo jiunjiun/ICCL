@@ -1,1 +1,14 @@
-%h1 Member#Graduate
+#student
+    .row
+        %h1= t('member.graduate')
+        %hr/
+        - @Graduate.each do |graduate|
+            .col-md-4
+                .userprofile.row
+                    .col-md-1
+                        %img.img-circle{:src => "https://graph.facebook.com/#{graduate.fb_id}/picture?type=square&width=90&height=90", :alt => "square", :width => 90, :height => 90}
+                    .col-md-6.col-md-offset-4
+                        %h3
+                            %strong= graduate.name
+                        %h5= graduate.email
+                        %h5= getWork_history(graduate.token)

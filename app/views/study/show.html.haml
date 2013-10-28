@@ -1,0 +1,5 @@
+%h1= @study.title
+%hr/
+.time.pull-right
+    = @study.updated_at.to_time.to_formatted_s(:long)
+%div= raw @study.content.html_safe

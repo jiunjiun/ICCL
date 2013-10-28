@@ -1,1 +1,12 @@
-%h1 Study#Master
+#study
+    .row
+        - @Masters.each do |master|
+            #aricle.col-md-12
+                %h2= master.title
+                %hr/
+                %em.time.pull-right
+                    = master.updated_at.to_time.to_formatted_s(:long)
+                .content
+                    = raw master.content.truncate(100, :separator => ' ')
+                %span
+                    %a{:href => "#{master.id}"} Read more

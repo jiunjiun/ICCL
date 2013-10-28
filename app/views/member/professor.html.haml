@@ -1,26 +1,72 @@
 %div#professor
-    %div.picture.col-md-2
-        %img.img-rounded{:src => image_path('te1.jpg'), :alt => "square", :width=> 200, :height=> 200}
-    %div.about.form-horizontal.col-md-9.col-md-offset-1
+    %div.profile
+        %div.picture.col-md-2
+            %img.img-rounded{:src => image_path('te.jpg'), :alt => "square", :width=> 200, :height=> 200}
 
-        %h3.col-md-11 翁健二　Chien-Erh Weng
+        %div.about.form-horizontal.col-md-9.col-md-offset-1
 
-        %label.col-md-2.col.control-label 職稱
-        .col-md-10
-            %label.control-label 助理教授
+            %h3.col-md-11 翁健二　Chien-Erh Weng
 
-        %label.col-md-2.control-label 最高學歷
-        %div.col-md-9
-            %label.control-label 國立中正大學電機系博士
+            %label.col-md-2.col.control-label 職稱
+            .col-md-10
+                %label.control-label 助理教授
 
-        %label.col-md-2.control-label 學術專長
-        %div.col-md-9
-            %label.control-label 合作式通訊系統、無線感測網路、智慧型行動裝置、嵌入式系統
+            %label.col-md-2.control-label 最高學歷
+            %div.col-md-9
+                %label.control-label 國立中正大學電機系博士
 
-        %label.col-md-2.control-label Email
-        %div.col-md-9
-            %label.control-label ceweng@mail.nkmu.edu.tw
+            %label.col-md-2.control-label 學術專長
+            %div.col-md-9
+                %label.control-label 合作式通訊系統、無線感測網路、智慧型行動裝置、嵌入式系統
 
-        %label.col-md-2.control-label 連絡方式
-        %div.col-md-9
-            %label.control-label 07-3617141#3327, 3329
+            %label.col-md-2.control-label Email
+            %div.col-md-9
+                %label.control-label ceweng@mail.nkmu.edu.tw
+
+            %label.col-md-2.control-label 連絡方式
+            %div.col-md-9
+                %label.control-label 07-3617141#3327, 3329
+
+    .paper
+        %h3= t('member.PA')
+        %hr/
+        %table.table.table-hover
+            %thead
+                %tr
+                    %th.text-center= t('member.year')
+                    %th.text-center= t('member.name')
+            %tbody
+                - @PA.each do |pa|
+                    %tr
+                        %td.col-md-1.text-center= pa.year
+                        %td= pa.name
+    .paper
+        %h3= t('member.IS')
+        %hr/
+        %table.table.table-hover
+            %thead
+                %tr
+                    %th.text-center= t('member.year')
+                    %th.text-center= t('member.name')
+            %tbody
+                - @IS.each do |is|
+                    %tr
+                        %td.col-md-1.text-center= is.year
+                        %td= is.name
+
+    .paper
+        %h3= t('member.DS')
+        %hr/
+        %table.table.table-hover
+            %thead
+                %tr
+                    %th.text-center= t('member.year')
+                    %th.text-center= t('member.name')
+            %tbody
+                - @DS.each do |ds|
+                    %tr
+                        %td.col-md-1.text-center= ds.year
+                        %td= ds.name
+
+
+

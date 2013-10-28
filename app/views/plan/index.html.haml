@@ -1,1 +1,11 @@
-%h1 Plan#index
+%h1= t('plan.title')
+%hr/
+#plan
+    .row.text
+        - @plans.each do |plan|
+            .aricle.col-sm-12
+                %h2= plan.title
+                .time.pull-right
+                    = plan.updated_at.to_time.to_formatted_s(:long)
+                .content
+                    = raw plan.content.truncate(100, :separator => ' ')
