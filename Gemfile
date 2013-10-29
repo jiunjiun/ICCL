@@ -53,6 +53,7 @@ gem 'koala', '~> 1.7.0rc1'
 # account
 gem 'cancan'
 
+# bootstrap
 gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
                               :github => 'anjlab/bootstrap-rails'
 
@@ -63,6 +64,10 @@ gem 'guard-livereload'
 
 # html editor
 gem "ckeditor"
+
+# upload file
+gem "carrierwave"
+gem "mini_magick"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
