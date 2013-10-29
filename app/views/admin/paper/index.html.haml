@@ -1,17 +1,34 @@
-%a{:href => new_admin_paper_path} New
-%table
-    %tr
-        %th
-        %th
-        %th Type
-        %th Year
-        %th Name
-    - @papers.each do |paper|
-        %tr
-            %td
-                =link_to 'Edit', edit_admin_paper_path(paper)
-            %td
-                =link_to 'delete', admin_paper_path(paper), :method => :delete
-            %td= paper._type
-            %td= paper.year
-            %td= paper.name
+.page-header
+    %h1= t('backend.paper.title')
+.row
+    .col-md-9
+        %a.btn.btn-primary{:href => new_admin_paper_path} New
+        %table.table.table-striped
+            %thead
+                %tr
+                    %th.col-md-1
+                    %th.col-md-1
+                    %th.col-md-2= t('admin.paper.type')
+                    %th.col-md-1= t('admin.paper.year')
+                    %th= t('admin.paper.name')
+            - @papers.each do |paper|
+                %tr
+                    %td
+                        =link_to 'Edit', edit_admin_paper_path(paper)
+                    %td
+                        =link_to 'delete', admin_paper_path(paper), :method => :delete
+                    %td= t("admin.paper.#{paper._type}")
+                    %td= paper.year
+                    %td= paper.name
+    .col-md-3
+        .well
+            / Link or button to toggle dropdown
+            %ul.nav
+                %li{role: "presentation"}
+                    =link_to 'All', :action => :index
+                %li{role: "presentation"}
+                    =link_to t('admin.paper.PA'), :action => :type, :type=> 'PA'
+                %li{role: "presentation"}
+                    =link_to t('admin.paper.IS'), :action => :type, :type=> 'IS'
+                %li{role: "presentation"}
+                    =link_to t('admin.paper.DS'), :action => :type, :type=> 'DS'

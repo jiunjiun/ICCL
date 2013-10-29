@@ -1,14 +1,15 @@
-= form_for @plan, :url=> admin_plan_path(@plan) do |f|
-    = f.label :title
-    = f.text_field :title
+= form_for @plan, :url=> admin_news_path(@plan) do |f|
+    %p
+        = f.text_field :title, class: 'form-control', placeholder: t('helper.title')
+    %p
+        = f.cktext_area :content, :value => @plan.content
 
-    = f.label :content
-    = f.text_area :content
-
-    = f.label :line
-    = f.text_field :line
-
-    = f.label :status
-    = f.select(:status, options_for_select([["public", "1"], ["private", "0"]]))
-
-    =f.submit
+    .row
+        .col-md-3
+            = f.number_field :line, class: 'form-control', placeholder: t('helper.plac_display_count')
+        .col-md-2
+            = f.select(:status, options_for_select([[t('helper.status-1'), "1"], [t('helper.status-0'), "0"]]), {}, {:class=>'form-control'})
+        .col-md-3.col-md-offset-4
+            .pull-right
+                = link_to 'Back', admin_plan_index_path, class: 'btn btn-default'
+                = f.submit class: 'btn btn-success'

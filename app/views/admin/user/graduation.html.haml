@@ -1,20 +1,24 @@
-%h1= t('backend.user.graduation')
-%hr/
+.page-header
+    %h1= t('backend.user.graduation')
 
-%table.table.table-striped
-    %thead
-        %tr
-            %th
-            %th= t('user.role')
-            %th= t('user.classes')
-            %th= t('user.name')
-            %th= t('user.email')
-            %th= t('user.phone')
-    - @users.each do |user|
-        %tr
-            %th
-            %td= roleName(user.role)
-            %td= classesName(user.classes)
-            %td= user.name
-            %td= user.email
-            %td= user.phone
+.row
+    .col-md-9
+        %table.table.table-striped
+            %thead
+                %tr
+                    %th
+                    %th= t('user.role')
+                    %th= t('user.classes')
+                    %th= t('user.name')
+                    %th= t('user.email')
+                    %th= t('user.phone')
+            - @users.each do |user|
+                %tr
+                    %th
+                    %td= roleName(user.role)
+                    %td= classesName(user.classes)
+                    %td= user.name
+                    %td= user.email
+                    %td= user.phone
+    .col-md-3
+        = render 'nav'

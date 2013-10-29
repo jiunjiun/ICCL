@@ -1,11 +1,13 @@
-%a{:href => new_admin_plan_path} New
-%table
-    %tr
-        %th
-        %th
-        %th title
-        %th line
-        %th status
+.page-header
+    %h1= t('plan.title')
+%a.btn.btn-primary{:href => new_admin_plan_path} New
+%table.table.table-striped
+    %thead
+        %tr
+            %th.col-md-1
+            %th.col-md-1
+            %th.col-md-9= t('helper.title')
+            %th.col-md-1= t('helper.status')
     - @plans.each do |plan|
         %tr
             %td
@@ -13,5 +15,4 @@
             %td
                 =link_to 'delete', admin_plan_path(plan), :method => :delete
             %td= plan.title
-            %td= plan.line
-            %td= plan.status
+            %td= t("helper.status-#{plan.status}")

@@ -1,12 +1,13 @@
-%a{:href => new_admin_study_path} New
-%table
-    %tr
-        %th
-        %th
-        %th title
-        %th line
-        %th classes
-        %th status
+.page-header
+    %h1= t('study.title')
+%a.btn.btn-primary{:href => new_admin_study_path} New
+%table.table.table-striped
+    %thead
+        %tr
+            %th.col-md-1
+            %th.col-md-1
+            %th.col-md-9= t('helper.title')
+            %th.col-md-1= t('helper.status')
     - @studies.each do |study|
         %tr
             %td
@@ -14,6 +15,4 @@
             %td
                 =link_to 'delete', admin_study_path(study), :method => :delete
             %td= study.title
-            %td= study.line
-            %td= study.classes
-            %td= study.status
+            %td= t("helper.status-#{study.status}")

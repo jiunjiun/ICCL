@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   protected
-  before_filter :authenticate
+  before_filter :authenticate, :statistics
 
   def authenticate
     @user = User.find_by_id(session[:UserInfo][:id]) if(session[:UserInfo])
@@ -31,5 +31,14 @@ class ApplicationController < ActionController::Base
     elsif params[:controller]["imsu"]
       "imsu"
     end
+  end
+
+
+  def statistics
+    @statistics = {
+      :member     => User.where(:role=> ['SU', 'UE']).count,
+      :guest      => User.where(:role=> 'GU').count,
+      :graduation => User.where(:role=> 'GR').count,
+    }
   end
 end

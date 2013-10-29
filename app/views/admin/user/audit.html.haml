@@ -1,23 +1,26 @@
-%h1= t('backend.user.audit')
-%hr/
+.page-header
+    %h1= t('backend.user.audit')
 
-%table.table.table-striped
-    %thead
-        %tr
-            %th
-            %th= t('user.classes')
-            %th= t('user.name')
-            %th= t('user.email')
-            %th= t('user.phone')
-    %tbody
-        - @users.each do |user|
-            %tr
-                %td
-                    %a{:href=> "verify/#{user.id}"} Audit
-                %td= user.classes
-                %td= user.name
-                %td= user.email
-                %td= user.phone
-
+.row
+    .col-md-9
+        %table.table.table-striped
+            %thead
+                %tr
+                    %th
+                    %th= t('user.classes')
+                    %th= t('user.name')
+                    %th= t('user.email')
+                    %th= t('user.phone')
+            %tbody
+                - @users.each do |user|
+                    %tr
+                        %td
+                            %a{:href=> "verify/#{user.id}"} Audit
+                        %td= user.classes
+                        %td= user.name
+                        %td= user.email
+                        %td= user.phone
+    .col-md-3
+        = render 'nav'
 
 

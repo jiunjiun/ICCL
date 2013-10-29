@@ -1,6 +1,18 @@
 class Admin::PaperController < ApplicationController
-    load_and_authorize_resource :except => [:create]
+    load_and_authorize_resource :except => [:show, :create]
     def index
+    end
+
+    def type
+        case params[:type]
+        when 'PA'
+            @papers = Paper.PA
+        when 'IS'
+            @papers = Paper.IS
+        when 'DS'
+            @papers = Paper.DS
+        end
+        render :index
     end
 
     def new

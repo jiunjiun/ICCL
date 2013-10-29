@@ -58,8 +58,17 @@
               %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
                 %img.img-circle{:src => "https://graph.facebook.com/#{session[:UserInfo][:fb_id]}/picture?type=square", :alt => "square", :width=> 30, :height=> 30}
                 = session[:UserInfo][:name]
+                - if can? :admin, Admin
+                  - if @statistics[:guest] != 0
+                    %span.label.label-danger= @statistics[:guest]
                 %b.caret
               %ul.dropdown-menu
+                - if can? :admin, Admin
+                  - if @statistics[:guest] != 0
+                    %li
+                      %a{href: admin_user_audit_path}
+                        = t('admin.user.new_reg')
+                        %span.label.label-danger= @statistics[:guest]
                 %li
                   %a{href: user_account_path}= t("user.account")
                 %li
