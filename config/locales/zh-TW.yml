@@ -31,46 +31,56 @@ zh-TW:
     service: '服務'
   admin:
     title: '管理後台'
+    user:
+      new_reg: '新註冊'
     paper:
+      type: '類別'
+      year: '年份'
+      name: '名稱'
+
       PA: '期刊論文'
       IS: '國際學術研討會'
       DS: '國內學術研討會'
   user:
-    account: '個人資料'
-    sign_in: '登入'
-    sign_up: '註冊'
-    sign_out: '登出'
-    classes: '級別'
-    name: '姓名'
-    phone: '手機'
+    account   : '個人資料'
+    sign_in   : '登入'
+    sign_up   : '註冊'
+    sign_out  : '登出'
+    classes   : '級別'
+    name      : '姓名'
+    phone     : '手機'
     note-email: '請輸入Email'
-    note-name: '請輸入本名'
+    note-name : '請輸入本名'
     note-phone: '請輸入聯絡電話'
-    role: '身份'
+    role      : '身份'
     roles:
       SU: 'SU'
       UE: '一般'
       GR: '畢業'
   backend:
     title: '後台'
-    back: '回首頁'
+    back : '回首頁'
     setting:
-      title: '設定'
+      title     : '設定'
       indexImage: '首圖'
     user:
-      title: '學生'
-      audit: '審核'
-      member: '成員'
+      title     : '學生'
+      member    : '實驗室成員'
+      audit     : '審核'
       graduation: '畢業生'
     news:
-      main: '最新消息'
-      title: '標題'
-      status: '狀態'
-      status-0: '私人'
-      status-1: '公開'
-      plac_write_something: 'Write something here ...'
+      main                : '最新消息'
     paper:
       title: '論文'
+  helper:
+    title   : '標題'
+    status  : '狀態'
+    add     : '新增'
+    edit    : '修改'
+    status-0: '私人'
+    status-1: '公開'
+    plac_write_something: 'Write something here ...'
+    plac_display_count  : '顯示字數'
 
 
 
