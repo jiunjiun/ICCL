@@ -27,5 +27,7 @@ module ICCL
     }
 
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
+
+    config.assets.enabled = true
   end
 end
