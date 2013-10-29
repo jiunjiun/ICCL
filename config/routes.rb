@@ -1,4 +1,5 @@
 ICCL::Application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   root 'index#index'
 
   match 'news/:id'                => 'news#show',          :via => 'get'
@@ -33,6 +34,7 @@ ICCL::Application.routes.draw do
     match 'user/graduation'       => 'user#graduation',    :via => 'get'
     match 'user/verify/:id'       => 'user#verify',        :via => 'get'
     resources :user
+    match 'paper/:type'           => 'paper#type',         :via => 'get'
     resources :paper
     resources :news
     resources :plan
