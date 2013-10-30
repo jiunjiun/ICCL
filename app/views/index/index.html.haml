@@ -1,6 +1,12 @@
 %h1 Index#index
 
 - @news.each do |news|
-    %p= link_to news.title, :controller => "news", :action => "show", :id => news
+    .aricle.col-sm-12
+        %h2
+            = link_to news.title, :controller => "news", :action => "show", :id => news
+        .time.pull-right
+            = news.updated_at.to_time.to_formatted_s(:long)
+        .content
+            = raw news.content.truncate(5, :separator => ' ')
 
 = paginate @news
