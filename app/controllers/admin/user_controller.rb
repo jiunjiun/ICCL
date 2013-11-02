@@ -29,15 +29,25 @@ class Admin::UserController < ApplicationController
 
     # end
 
-    # def edit
+    def edit
+        @user = User.find(params[:id])
+    end
 
-    # end
-
-    # def update
-
-    # end
+    def update
+        @user = User.find(params[:id])
+        if @user.update_attributes(user_params)
+            redirect_to admin_user_index_path
+        else
+            render edit_admin_uesr_path
+        end
+    end
 
     # def destroy
 
     # end
+
+    private
+    def user_params
+        params.require(:user).permit(:role)
+    end
 end
