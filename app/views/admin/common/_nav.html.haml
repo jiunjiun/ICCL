@@ -14,7 +14,7 @@
         %ul.nav.navbar-nav
           %li
             - if @statistics[:guest] == 0
-              %a{href: admin_user_index_path}
+              %a{href: admin_user_index_path}= t("backend.user.member")
             - else
               %a{href: admin_user_audit_path}
                 = t("backend.user.member")

@@ -1,0 +1,28 @@
+.page-header
+    %h1= t('helpers.submit.edit')
+= form_for @user, :url=> admin_user_path(@user) do |f|
+    .col-md-12
+        .col-md-2
+            %h4= t('user.name')
+        .col-md-10
+            %h4= @user.name
+    .col-md-12
+        .col-md-2
+            %h4= t('user.account')
+        .btn-group{"data-toggle" => "buttons"}
+            %label.btn.btn-primary
+                = f.radio_button :role, 'SU', :checked=> @user.role.eql?('SU')
+                = t('user.roles.SU')
+            %label.btn.btn-primary
+                = f.radio_button :role, 'GR', :checked=> @user.role.eql?('GR')
+                = t('user.roles.GR')
+            %label.btn.btn-primary
+                = f.radio_button :role, 'UE', :checked=> @user.role.eql?('UE')
+                = t('user.roles.UE')
+    .col-md-12
+        %hr/
+        = link_to 'Back', admin_user_index_path, class: 'btn btn-default'
+        = f.submit class: 'btn btn-success'
+
+
+%script{:src=> 'edit.js'}

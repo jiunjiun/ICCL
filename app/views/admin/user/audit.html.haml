@@ -15,7 +15,8 @@
                 - @users.each do |user|
                     %tr
                         %td
-                            %a{:href=> "verify/#{user.id}"} Audit
+                            %a{:href=> "verify/#{user.id}"}
+                                %span.glyphicon.glyphicon-ok
                         %td= user.classes
                         %td= user.name
                         %td= user.email

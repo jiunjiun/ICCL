@@ -15,6 +15,8 @@
             - @users.each do |user|
                 %tr
                     %th
+                        %a{:href => edit_admin_user_path(user)}
+                            %span.glyphicon.glyphicon-pencil
                     %td= roleName(user.role)
                     %td= classesName(user.classes)
                     %td= user.name

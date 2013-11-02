@@ -11,8 +11,10 @@
     - @plans.each do |plan|
         %tr
             %td
-                =link_to 'Edit', edit_admin_plan_path(plan)
+                %a{:href => edit_admin_plan_path(plan)}
+                    %span.glyphicon.glyphicon-pencil
             %td
-                =link_to 'delete', admin_plan_path(plan), :method => :delete
+                %a{:href => admin_plan_path(plan), 'data-method'=> 'delete'}
+                    %span.glyphicon.glyphicon-remove
             %td= plan.title
             %td= t("helper.status-#{plan.status}")

@@ -14,9 +14,11 @@
             - @papers.each do |paper|
                 %tr
                     %td
-                        =link_to 'Edit', edit_admin_paper_path(paper)
+                        %a{:href => edit_admin_paper_path(paper)}
+                            %span.glyphicon.glyphicon-pencil
                     %td
-                        =link_to 'delete', admin_paper_path(paper), :method => :delete
+                        %a{:href => admin_paper_path(paper), 'data-method'=> 'delete'}
+                            %span.glyphicon.glyphicon-remove
                     %td= t("admin.paper.#{paper._type}")
                     %td= paper.year
                     %td= paper.name

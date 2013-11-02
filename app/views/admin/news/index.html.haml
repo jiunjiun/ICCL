@@ -11,8 +11,10 @@
     - @news.each do |news|
         %tr
             %td
-                =link_to 'Edit', edit_admin_news_path(news)
+                %a{:href => edit_admin_news_path(news)}
+                    %span.glyphicon.glyphicon-pencil
             %td
-                =link_to 'delete', admin_news_path(news), :method => :delete
+                %a{:href => admin_news_path(news), 'data-method'=> 'delete'}
+                    %span.glyphicon.glyphicon-remove
             %td= news.title
             %td= t("helper.status-#{news.status}")
