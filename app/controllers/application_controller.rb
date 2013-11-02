@@ -7,8 +7,8 @@ class ApplicationController < ActionController::Base
   before_filter :authenticate, :statistics
 
   def authenticate
-    @user = User.find_by_id(session[:UserInfo][:id]) if(session[:UserInfo])
-    redirect_to sign_up_path if(!@user.classes  && !params[:action]["sign_up"]) if(@user)
+    @uesr_info = User.find_by_id(session[:UserInfo][:id]) if(session[:UserInfo])
+    redirect_to sign_up_path if(!@uesr_info.classes  && !params[:action]["sign_up"]) if(@uesr_info)
   end
 
   # cancan has any err back root_path
@@ -18,8 +18,8 @@ class ApplicationController < ActionController::Base
 
   # cancan Ability
   def current_ability
-      reset_session if(!@user)
-      @current_ability ||= ::Ability.new(@user)
+      reset_session if(!@uesr_info)
+      @current_ability ||= ::Ability.new(@uesr_info)
   end
   # ---------------
 
