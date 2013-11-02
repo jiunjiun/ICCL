@@ -53,8 +53,9 @@ zh-TW:
     note-name : '請輸入本名'
     note-phone: '請輸入聯絡電話'
     role      : '身份'
+    account   : '管理權限'
     roles:
-      SU: 'SU'
+      SU: '管理者'
       UE: '一般'
       GR: '畢業'
   backend:
