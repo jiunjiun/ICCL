@@ -1,0 +1,18 @@
+- content_for :js do
+  - javascript_include_tag "admin/banner"
+
+= form_for( @banner, :url=> admin_banner_index_path, :html => {:multipart => true}) do |f|
+  .fileupload-buttonbar
+    .row
+      .col-md-12
+        / The fileinput-button span is used to style the file input field as button
+        %span.btn.btn-success.fileinput-button
+          %i.icon-plus.icon-white
+          %span Add files...
+          = f.file_field :file
+    .row
+      .col-md-12
+        / The global progress bar
+        .progress.progress-striped.active
+          .progress-bar
+            %span.sr-only

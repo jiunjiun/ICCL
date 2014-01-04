@@ -39,6 +39,8 @@ ICCL::Application.routes.draw do
     resources :news
     resources :plan
     resources :study
+    match 'banner/update_indexs'       => 'banner#update_indexs',        :via => 'post'
+    resources :banner
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

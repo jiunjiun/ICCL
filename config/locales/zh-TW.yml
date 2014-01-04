@@ -62,15 +62,17 @@ zh-TW:
     title: '後台'
     back : '回首頁'
     setting:
-      title     : '設定'
-      indexImage: '首圖'
+      title : '設定'
+      banner: '首圖'
+      upload: '上傳'
+      are_you_sure: '確定要刪除?'
     user:
       title     : '學生'
       member    : '實驗室成員'
       audit     : '審核'
       graduation: '畢業生'
     news:
-      main                : '最新消息'
+      main: '最新消息'
     paper:
       title: '論文'
   helper:
@@ -82,7 +84,6 @@ zh-TW:
     status-1: '公開'
     plac_write_something: 'Write something here ...'
     plac_display_count  : '顯示字數'
-
 
 
   date:

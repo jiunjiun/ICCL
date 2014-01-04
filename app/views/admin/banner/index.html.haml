@@ -1,0 +1,30 @@
+- content_for :js do
+  - javascript_include_tag "admin/banner"
+#banner
+  .page-header
+    %h1= t('backend.setting.banner')
+
+  = form_for( @banner, :url=> admin_banner_index_path) do |f|
+    .fileupload-buttonbar
+      .row.drop
+        #dropzone.fade.well.col-md-12 Drop files here
+        .col-md-12
+          / The fileinput-button span is used to style the file input field as button
+          %span.btn.btn-success.fileinput-button
+            %i.icon-plus.icon-white
+            %span= t('backend.setting.upload')
+            = f.file_field :file
+      .row.hide
+        .col-md-12
+          / The global progress bar
+          .progress.progress-striped.active
+            .progress-bar
+              %span.sr-only
+
+  .row.banners
+    - @banners.each do |banner|
+      .col-md-4
+        .panel.panel-default
+          = image_tag(banner.file_url(:small), :class => 'img-responsive', 'data-index' => banner.index, 'data-id' => banner.id)
+          = link_to 'Destroy', admin_banner_path(banner), :method => :delete, :class => 'destroy', :remote => true, "data-type" => :json, :id => "result", data: { confirm: t('backend.setting.are_you_sure') }
+          / # = link_to 'Destroy', banner, method: :delete, data: { confirm: 'Are you sure?' }

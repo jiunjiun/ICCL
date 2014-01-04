@@ -1,7 +1,0 @@
-$(function(){
-    $('label input[type=radio]').each(function(){
-        if($(this).val() == '<%= @user.role %>') {
-            $(this).parent().trigger('click');
-        }
-    });
-})

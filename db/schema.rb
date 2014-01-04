@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131028231040) do
+ActiveRecord::Schema.define(version: 20131117133039) do
+
+  create_table "banners", force: true do |t|
+    t.string   "name"
+    t.string   "file"
+    t.string   "size"
+    t.string   "content_type"
+    t.integer  "index",        default: 1
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "ckeditor_assets", force: true do |t|
     t.string   "data_file_name",               null: false

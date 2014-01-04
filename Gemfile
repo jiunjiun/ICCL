@@ -66,8 +66,13 @@ gem 'guard-livereload'
 gem "ckeditor"
 
 # upload file
-gem "carrierwave"
-gem "mini_magick"
+gem 'carrierwave'
+gem 'mini_magick'
+
+gem 'jquery-fileupload-rails'
+
+# jQuery-UI
+gem 'jquery-ui-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

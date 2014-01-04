@@ -13,9 +13,9 @@
 #
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.sortable
+//= require jquery-fileupload/basic
 //= require turbolinks
 //= require twitter/bootstrap
+//= require ckeditor/init
 //= require_tree .
-
-$ ->
-    $('.carousel').carousel interval: 3000

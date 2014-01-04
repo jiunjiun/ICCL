@@ -29,6 +29,7 @@
 }
 
 .navbar-wrapper {
+    border-color: #F8F8F8;
     nav {
         border-radius: 0;
         // background-color: #5396fc;
@@ -49,8 +50,9 @@
 }
 
 #Carousel{
-    margin-top: -90px;
+    margin-top: -20px;
     margin-bottom: 20px;
+    z-index: -1;
     img {
         height: 100%;
         width: 100%;
@@ -122,8 +124,6 @@
         margin-bottom: 15px;
     }
 }
-
-
 
 
 
