@@ -17,5 +17,6 @@
 //= require jquery-fileupload/basic
 //= require turbolinks
 //= require twitter/bootstrap
+//= require ckeditor/override
 //= require ckeditor/init
 //= require_tree .
