@@ -6,8 +6,12 @@
         %tr
             %th.col-md-1
             %th.col-md-1
-            %th.col-md-9= t('helper.title')
-            %th.col-md-1= t('helper.status')
+            %th.col-md-6{:class=> 'text-center'}
+                = t('helper.title')
+            %th.col-md-3{:class=> 'text-center'}
+                = t('helper.datetime')
+            %th.col-md-1{:class=> 'text-center'}
+                = t('helper.status')
     - @news.each do |news|
         %tr
             %td
@@ -16,5 +20,9 @@
             %td
                 %a{:href => admin_news_path(news), 'data-method'=> 'delete'}
                     %span.glyphicon.glyphicon-remove
-            %td= news.title
-            %td= t("helper.status-#{news.status}")
+            %td{:class=> 'text-center'}
+                = news.title
+            %td{:class=> 'text-center'}
+                = l news.created_at, format: :long
+            %td{:class=> 'text-center'}
+                = t("helper.status-#{news.status}")

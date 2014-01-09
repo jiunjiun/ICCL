@@ -7,6 +7,7 @@
         .time.pull-right
             = news.updated_at.to_time.to_formatted_s(:long)
         .content
-            = raw news.content.truncate(5, :separator => ' ')
+            %div
+                = truncate_html news.content, :length => 30
 
 = paginate @news

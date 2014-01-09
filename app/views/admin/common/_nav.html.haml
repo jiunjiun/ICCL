@@ -1,53 +1,52 @@
-.navbar-wrapper
+.navbar.navbar-default.navbar-inverse.navbar-static-top{role: "navigation"}
   .container
-    %nav.navbar.navbar-default{role: "navigation"}
-      / Brand and toggle get grouped for better mobile display
-      .navbar-header
-        %button.navbar-toggle{"data-target" => ".navbar-ex1-collapse", "data-toggle" => "collapse", type: "button"}
-          %span.sr-only Toggle navigation
-          %span.icon-bar
-          %span.icon-bar
-          %span.icon-bar
-        %a.navbar-brand{href: admin_root_path}= t('backend.title')
-      / Collect the nav links, forms, and other content for toggling
-      .collapse.navbar-collapse.navbar-ex1-collapse
-        %ul.nav.navbar-nav
-          %li
-            - if @statistics[:guest] == 0
-              %a{href: admin_user_index_path}= t("backend.user.member")
-            - else
-              %a{href: admin_user_audit_path}
-                = t("backend.user.member")
-                %span.label.label-danger= @statistics[:guest]
-          %li
-            %a{href: admin_news_index_path}= t("backend.news.main")
-          %li
-            %a{href: admin_paper_index_path}= t("backend.paper.title")
-          %li
-            %a{href: admin_plan_index_path}= t("plan.title")
-          %li
-            %a{href: admin_study_index_path}= t("study.title")
+    / Brand and toggle get grouped for better mobile display
+    .navbar-header
+      %button.navbar-toggle{"data-target" => ".navbar-ex1-collapse", "data-toggle" => "collapse", type: "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand{href: admin_root_path}= t('backend.title')
+    / Collect the nav links, forms, and other content for toggling
+    .collapse.navbar-collapse.navbar-ex1-collapse
+      %ul.nav.navbar-nav
+        %li
+          - if @statistics[:guest] == 0
+            %a{href: admin_user_index_path}= t("backend.user.member")
+          - else
+            %a{href: admin_user_audit_path}
+              = t("backend.user.member")
+              %span.label.label-danger= @statistics[:guest]
+        %li
+          %a{href: admin_news_index_path}= t("backend.news.main")
+        %li
+          %a{href: admin_paper_index_path}= t("backend.paper.title")
+        %li
+          %a{href: admin_plan_index_path}= t("plan.title")
+        %li
+          %a{href: admin_study_index_path}= t("study.title")
+        %li.dropdown
+          %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+            = t("backend.setting.title")
+            %b.caret
+          %ul.dropdown-menu
+            %li
+              %a{href: admin_banner_index_path}= t("backend.setting.banner")
+        %li
+          %a{href: root_path}= t("backend.back")
+      %ul.nav.navbar-nav.navbar-right
+        - if session[:UserInfo]
           %li.dropdown
             %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-              = t("backend.setting.title")
+              %img.img-circle{:src => "https://graph.facebook.com/#{session[:UserInfo][:fb_id]}/picture?type=square", :alt => "square"}
+              = session[:UserInfo][:name]
               %b.caret
             %ul.dropdown-menu
               %li
-                %a{href: admin_banner_index_path}= t("backend.setting.banner")
+                %a{href: user_account_path}= t("user.account")
+              %li
+                %a{href: sign_out_path}= t("user.sign_out")
+        - else
           %li
-            %a{href: root_path}= t("backend.back")
-        %ul.nav.navbar-nav.navbar-right
-          - if session[:UserInfo]
-            %li.dropdown
-              %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-                %img.img-circle{:src => "https://graph.facebook.com/#{session[:UserInfo][:fb_id]}/picture?type=square", :alt => "square", :width=> 30, :height=> 30}
-                = session[:UserInfo][:name]
-                %b.caret
-              %ul.dropdown-menu
-                %li
-                  %a{href: user_account_path}= t("user.account")
-                %li
-                  %a{href: sign_out_path}= t("user.sign_out")
-          - else
-            %li
-              %a{href: sign_in_path}= t("user.sign_in")
+            %a{href: sign_in_path}= t("user.sign_in")

@@ -1,2 +1,4 @@
-%h1= @news.title
-%div= @news.content
+%h1
+    = @news.title
+%div
+    = raw @news.content.truncate(100, :separator => ' ')

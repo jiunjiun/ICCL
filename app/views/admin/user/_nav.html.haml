@@ -4,7 +4,7 @@
         %li{role: "presentation"}
             %a{:href => admin_user_index_path}
                 =t('backend.user.member')
-                %span.label.label-primary= @statistics[:member]
+                %span.label.label-primary.pull-right= @statistics[:member]
         %li{role: "presentation"}
             %a{:href => admin_user_audit_path}
                 = t('backend.user.audit')
@@ -13,4 +13,4 @@
         %li{role: "presentation"}
             %a{:href => admin_user_graduation_path}
                 = t('backend.user.graduation')
-                %span.label.label-primary= @statistics[:graduation]
+                %span.label.label-primary.pull-right= @statistics[:graduation]
