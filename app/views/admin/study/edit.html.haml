@@ -1,3 +1,5 @@
 .page-header
-    %h1= t('helpers.submit.edit', :model => '')
+    %h1
+        = t('helper.edit', :model => '')
+        %small= t('study.title', :model => '')
 = render 'from'
