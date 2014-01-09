@@ -45,9 +45,10 @@ class Admin::BannerController < ApplicationController
 
     def update_indexs
       @index = params[:indexs]
-
-      @index.each do |i, j|
-        Banner.find(i.first).update_attributes(:index => j)
+      if @index
+          @index.each do |i, j|
+            Banner.find(i).update_attributes(:index => j)
+          end
       end
 
       respond_to do |format|

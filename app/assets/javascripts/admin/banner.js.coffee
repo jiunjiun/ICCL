@@ -38,8 +38,6 @@ $ ->
     # .parent()
     # .addClass($.support.fileInput ? undefined : 'disabled')
 
-
-
     $(document).bind 'dragover': (e) ->
         dropZone = $('#dropzone'); timeout = window.dropZoneTimeout
 
@@ -82,9 +80,9 @@ $ ->
                 if parseInt(i) isnt j
                     some = true
                     break
-
             if some
-                $.post 'banner/update_indexs', {indexs:indexArr}, (data) ->
-                    console.log 'ok' if(data.status is 'ok')
-                , 'json'
+                $.post 'banner/update_indexs',
+                    {indexs:(indexArr)}, (data) ->
+                        console.log 'ok' if(data.status is 'ok')
+                    , 'json'
 
