@@ -74,6 +74,8 @@ gem 'jquery-fileupload-rails'
 # jQuery-UI
 gem 'jquery-ui-rails'
 
+gem 'truncate_html'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
