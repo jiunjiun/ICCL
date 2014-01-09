@@ -27,10 +27,22 @@
             / Link or button to toggle dropdown
             %ul.nav
                 %li{role: "presentation"}
-                    =link_to 'All', :action => :index
+                    %a{:href => admin_paper_index_path}
+                        = t('All')
+                        - if @paper_statistics[:All] != 0
+                            %span.label.label-primary.pull-right= @paper_statistics[:All]
                 %li{role: "presentation"}
-                    =link_to t('admin.paper.PA'), :action => :type, :type=> 'PA'
+                    %a{:href => admin_paper_index_path}
+                        = t('admin.paper.PA')
+                        - if @paper_statistics[:PA] != 0
+                            %span.label.label-primary.pull-right= @paper_statistics[:PA]
                 %li{role: "presentation"}
-                    =link_to t('admin.paper.IS'), :action => :type, :type=> 'IS'
+                    %a{:href => admin_paper_index_path}
+                        = t('admin.paper.IS')
+                        - if @paper_statistics[:IS] != 0
+                            %span.label.label-primary.pull-right= @paper_statistics[:IS]
                 %li{role: "presentation"}
-                    =link_to t('admin.paper.DS'), :action => :type, :type=> 'DS'
+                    %a{:href => admin_paper_index_path}
+                        = t('admin.paper.DS')
+                        - if @paper_statistics[:DS] != 0
+                            %span.label.label-primary.pull-right= @paper_statistics[:DS]

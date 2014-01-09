@@ -1,11 +1,17 @@
 = form_for @paper, :url=> admin_paper_path(@paper) do |f|
-    = f.label :_type
-    = f.select(:_type, [[t('admin.paper.PA'), "PA"], [t('admin.paper.IS'), "IS"], [t('admin.paper.DS'), "DS"]], {}, {:class=>'form-control'})
+    .form-group
+        = f.label :name, t('admin.paper.name')
+        = f.text_field :name, :class=> 'form-control', :placeholder=> t('admin.paper.name')
+    .row
+        .col-md-6
+            = f.label :_type, t('admin.paper.type'), :class=> 'sr-only', :for=> 'paper__type'
+            = f.select(:_type, [[t('admin.paper.PA'), "PA"], [t('admin.paper.IS'), "IS"], [t('admin.paper.DS'), "DS"]], {}, {:class=>'form-control'})
+        .col-md-6
+            = f.label :year, t('admin.paper.year'), :class=> 'sr-only', :for=> 'paper_year'
+            = f.number_field :year,:value=> Time.new.year, :class=> 'form-control', :placeholder=> t('admin.paper.year')
 
-    = f.label :year
-    = f.number_field :year
-
-    = f.label :name
-    = f.text_field :name
-
-    = f.submit
+    .row
+        .col-md-12
+            .pull-right
+                = link_to 'Back', admin_paper_index_path, :class=> 'btn'
+                = f.submit t('helper.add'), :class=> 'btn btn-success'

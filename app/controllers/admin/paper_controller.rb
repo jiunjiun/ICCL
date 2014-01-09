@@ -1,5 +1,7 @@
 class Admin::PaperController < ApplicationController
     load_and_authorize_resource :except => [:show, :create]
+    before_filter :paper_statistics, :only => [:index]
+
     def index
     end
 
@@ -46,5 +48,14 @@ class Admin::PaperController < ApplicationController
     private
     def paper_params
         params.require(:paper).permit(:_type, :year, :name)
+    end
+
+    def paper_statistics
+        @paper_statistics = {
+            All: Paper.all.count,
+            PA: Paper.PA.count,
+            IS: Paper.IS.count,
+            DS: Paper.DS.count
+        }
     end
 end
