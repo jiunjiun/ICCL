@@ -12,7 +12,6 @@
  *= require twitter/bootstrap
  *= require_self
  *= require normalize-rails
-
  *= require_tree .
  */
 
@@ -41,17 +40,22 @@
     }
 }
 
-.navbar-wrapper {
+.navbar {
+    // border-color: #F8F8F8;
     nav {
         border-radius: 0;
-        // background-color: #5396fc;
-        // border: 0;
     }
-    // .navbar-default .navbar-nav > li > a {color: #fff;}
 
-    nav ul.navbar-nav.navbar-right {
-        .dropdown-toggle {
-            padding: 10px 13px;
+    ul.nav.navbar-nav.navbar-right {
+        .dropdown-toggle{
+            position: relative;
+
+            padding-left: 45px;
+            img {
+                position: absolute;
+                width: 30px; height: 30px;
+                left: 5px; top: 10px;
+            }
         }
     }
 }

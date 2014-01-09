@@ -9,10 +9,12 @@
 </head>
 <body>
 
-<%= render :partial => "common/nav" %>
-<%= carousel %>
-<div class="container">
-    <%= yield %>
+<div id="wrap">
+    <%= render :partial => "common/nav" %>
+    <%= carousel %>
+    <div class="container">
+        <%= yield %>
+    </div>
 </div>
 <%= render :partial => "common/footer" %>
 </body>
