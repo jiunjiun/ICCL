@@ -82,9 +82,9 @@ zh-TW:
     edit    : '修改'
     status-0: '私人'
     status-1: '公開'
+    datetime: '時間'
     plac_write_something: 'Write something here ...'
     plac_display_count  : '顯示字數'
-
 
   date:
     abbr_day_names:
