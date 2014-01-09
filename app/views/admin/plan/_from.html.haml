@@ -1,4 +1,4 @@
-= form_for @plan, :url=> admin_news_path(@plan) do |f|
+= form_for @plan, :url=> admin_plan_path(@plan) do |f|
     %p
         = f.text_field :title, class: 'form-control', placeholder: t('helper.title')
     %p

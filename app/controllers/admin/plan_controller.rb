@@ -8,7 +8,6 @@ class Admin::PlanController < ApplicationController
 
     def create
         @plan = Plan.new(plan_params)
-        Rails.logger.debug('++++++++++  #{@plan}')
         if @plan.save
             redirect_to admin_plan_index_path
         else
