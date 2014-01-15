@@ -15,7 +15,7 @@
           - if @statistics[:guest] == 0
             %a{href: admin_user_index_path}= t("backend.user.member")
           - else
-            %a{href: admin_user_audit_path}
+            %a{href: audit_admin_user_index_path}
               = t("backend.user.member")
               %span.label.label-danger= @statistics[:guest]
         %li

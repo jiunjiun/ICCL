@@ -7,12 +7,12 @@
                 - if @study_statistics[:All] != 0
                     %span.label.label-primary.pull-right= @study_statistics[:All]
         %li{role: "presentation"}
-            %a{:href => admin_study_Master_path}
+            %a{:href => master_admin_study_index_path}
                 = t('study.master')
                 - if @study_statistics[:Master] != 0
                     %span.label.label-primary.pull-right= @study_statistics[:Master]
         %li{role: "presentation"}
-            %a{:href => admin_study_University_path}
+            %a{:href => university_admin_study_index_path}
                 = t('study.university')
                 - if @study_statistics[:University] != 0
                     %span.label.label-primary.pull-right= @study_statistics[:University]

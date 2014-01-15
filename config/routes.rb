@@ -30,19 +30,41 @@ ICCL::Application.routes.draw do
 
   namespace :admin do
     root  'index#index'
-    match 'user/audit'            => 'user#audit',           :via => 'get'
-    match 'user/graduation'       => 'user#graduation',      :via => 'get'
-    match 'user/verify/:id'       => 'user#verify',          :via => 'get'
-    resources :user
+
+    resources :user do
+      member do
+       post 'verify'
+      end
+
+      collection do
+        get 'audit', 'graduation'
+      end
+    end
     match 'paper/type/:type'      => 'paper#type',           :via => 'get'
-    resources :paper
+    resources :paper do
+      # collection do
+      #   get 'type/:type', to: 'paper#type'
+      # end
+    end
+
     resources :news
     resources :plan
-    match 'study/Master'          => 'study#master',         :via => 'get'
-    match 'study/University'      => 'study#university',     :via => 'get'
-    resources :study
-    match 'banner/update_indexs'  => 'banner#update_indexs', :via => 'post'
-    resources :banner
+    # match 'study/Master'          => 'study#master',         :via => 'get'
+    # match 'study/University'      => 'study#university',     :via => 'get'
+    resources :study do
+      collection do
+        get 'master'    , to: 'study#master'
+        get 'university', to: 'study#university'
+      end
+    end
+
+
+    # match 'banner/update_indexs'  => 'banner#update_indexs', :via => 'post'
+    resources :banner do
+      collection do
+        post 'update_indexs'
+      end
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -65,7 +65,7 @@
               - if can? :admin, Admin
                 - if @statistics[:guest] != 0
                   %li
-                    %a{href: admin_user_audit_path}
+                    %a{href: audit_admin_user_index_path}
                       = t('admin.user.new_reg')
                       %span.label.label-danger= @statistics[:guest]
               %li

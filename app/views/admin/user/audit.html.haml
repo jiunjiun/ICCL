@@ -15,7 +15,7 @@
                 - @users.each do |user|
                     %tr
                         %td
-                            %a{:href=> "verify/#{user.id}"}
+                            %a{:href=> verify_admin_user_path(user) }
                                 %span.glyphicon.glyphicon-ok
                         %td= user.classes
                         %td= user.name

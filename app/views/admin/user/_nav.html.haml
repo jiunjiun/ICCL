@@ -6,11 +6,11 @@
                 =t('backend.user.member')
                 %span.label.label-primary.pull-right= @statistics[:member]
         %li{role: "presentation"}
-            %a{:href => admin_user_audit_path}
+            %a{:href => audit_admin_user_index_path}
                 = t('backend.user.audit')
                 - if @statistics[:guest] != 0
                     %span.label.label-danger= @statistics[:guest]
         %li{role: "presentation"}
-            %a{:href => admin_user_graduation_path}
+            %a{:href => graduation_admin_user_index_path}
                 = t('backend.user.graduation')
                 %span.label.label-primary.pull-right= @statistics[:graduation]
